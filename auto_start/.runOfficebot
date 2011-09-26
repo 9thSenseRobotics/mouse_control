@@ -1,0 +1,11 @@
+#!/bin/sh
+
+skype &
+sleep 5
+xterm -e roscore &
+sleep 1
+xterm -e rosrun cameraControl cameraControl &
+sleep 1
+xterm -e rosrun rosserial_python serial_node.py /dev/ttyACM0 &
+sleep 3
+xterm -e rosrun captureSkypeChat ROS_telebot_skype_chat_cam_switching_rev1.py &
